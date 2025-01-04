@@ -1,6 +1,7 @@
 import { createSignal ,createEffect, Show} from "solid-js";
 import { BsPinAngleFill } from 'solid-icons/bs'
 import Section from "./components/Section";
+import './App.module.css'
 function App() {
   const [isFullScreen, setIsFullScreen] = createSignal(false);
   const [isPortrait, setIsPortrait] = createSignal(false);
@@ -10,7 +11,8 @@ function App() {
   const [modalData, setModalData] = createSignal([]);
   const [modalTitle, setModalTitle] = createSignal("");
   const [isProfile, setIsProfile] = createSignal(false);
-
+  const [isProject,setIsproject] = createSignal(false);
+  const [hiddenCard, setHiddenCard] = createSignal(null);
   const updateScreenDimensions = async () => {
     setScreenWidth(screen.width);
     setScreenHeight(screen.height);
@@ -59,6 +61,7 @@ function App() {
     clickSound.play();
     // alert("played")
     console.log("open : ",str);
+    setHiddenCard(str);
     const languages= [
       { name: "Python", proficiency: "Competent" },
       { name: "C", proficiency: "Skilled" },
@@ -81,15 +84,21 @@ function App() {
     const databases= [
       { name: "SQL", proficiency: "Foundational" },
       { name: "MySQL", proficiency: "Foundational" },
-      { name: "MongoDB", proficiency: "Foundational" }
+      { name: "MongoDB", proficiency: "Foundational" },
+      { name: "Git and GitHub", proficiency: "Basic" },
     ]
 
-    const profile = [
-      { name: "Name", value: "Rahul" },
-      { name: "Age", value: "25" },
-      { name: "Location", value: "Bangalore" },
-
+    const ssynergy = [
+      {
+        name: "Student Synergy",
+        description: "• Created a user-friendly website to help students manage their schedules effectively.• Introduced features such as a Pomodoro timer, gamified task progress tracking, user authentication, dashboard, and digital notes, which aims to increase the users productivity by a 35-40%.",
+        techStack: ["Django", "Python", "MySQL", "Bootstap","HTML CSS & JS"],
+        features: ["Rich Text Editor for note-taking", "Tasks Scheduler", "Pomodoro Timer", "Chatbot"],
+        duration: "3 months",
+        githubLink: "https://github.com/IOutis/Learners-Edge",
+      }
     ]
+
     if(str==="lang"){
       setModalData(languages);
       setIsModalOpen(true);
@@ -110,15 +119,20 @@ function App() {
           setIsModalOpen(true);
           setModalTitle("Databases")
     }
+    else if(str==="ssynergy"){
+          setModalData(ssynergy);
+          setIsModalOpen(true);
+          setModalTitle("Student Synergy")
+          setIsproject(true)
+    }
     else if(str==="profile"){
-      setModalData(profile);
       setIsModalOpen(true);
       setIsProfile(true);
       setModalTitle("Profile")
 
     }
 
-    console.log("card : ",cardClicked())
+    // console.log("card : ",cardClicked())
   }
 
 
@@ -156,9 +170,9 @@ function App() {
         <section
           id="image"
 
-          className="absolute bg-white w-[20%] h-[20%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-4 border-orange-900 shadow-black shadow-md  rotate-3 "
+          className={`absolute bg-white w-[20%] h-[20%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-4 border-orange-900 shadow-black shadow-md  rotate-3 ${hiddenCard() === "profile" ? 'animate-profileAnimate' : 'visible duration-300'} `} onClick={()=>openCard("profile")}
         >
-          <div class="h-full w-full flex flex-col items-center justify-center bg-white/90 p-4" onClick={()=>openCard("profile")}>
+          <div class={`h-full w-full flex flex-col items-center justify-center bg-white/90 p-4 `} >
             <div class="w-16 h-16 bg-gray-300 rounded-full mb-4"></div>
             <p class="font-mono font-bold text-gray-800 text-xl mb-2">AGENT PROFILE</p>
             <p class="font-mono text-gray-600 text-sm">TOP SECRET</p>
@@ -177,7 +191,7 @@ function App() {
             {/* Top layer with content */}
             <div class="relative w-full h-full bg-green-200 border-2 border-orange-900 shadow-black shadow-md">
               <div class="w-full h-full flex items-center justify-center">
-                <p class="font-mono text-gray-800">EVIDENCE LIST</p>
+                <p class="font-mono text-gray-800">AGENT TOOLKIT</p>
               </div>
               <div class="absolute -top-3 -right-2 w-6 h-6 bg-yellow-300 rotate-45"></div>
             </div>
@@ -185,7 +199,7 @@ function App() {
           {/* children of the skills start here */}
           
           
-          <div className=" group absolute top-[129%] -left-[21%] bg-white w-full h-[120px] p-4 rotate-12 shadow-black shadow-md transition-all duration-300 ease-in-out origin-top hover:rotate-0 " onClick={()=>{openCard("lang")}}>            
+          <div className={` group absolute top-[129%] -left-[21%] bg-white w-full h-[120px] p-4 rotate-12 shadow-black shadow-md transition-all duration-300 ease-in-out origin-top hover:rotate-0 ${hiddenCard() === "lang" ? 'animate-just' : 'visible duration-300'}`}  onClick={()=>{openCard("lang")}}>            
             <p class="font-mono text-gray-800 text-md">Languages</p>
             
                   <div>
@@ -218,7 +232,7 @@ function App() {
 
 
           {/* web technologies */}
-          <div className="absolute top-[24%] left-[150%] bg-white w-full h-[120px] p-4 origin-[90%_3%] rotate-[12deg] shadow-black shadow-md transition-all duration-300 ease-in-out origin-[100%_10%] hover:rotate-[3deg]" onClick={()=>{openCard("web")}}>
+          <div className={`absolute top-[24%] left-[150%] bg-white w-full h-[120px] p-4 origin-[90%_3%] rotate-[12deg] shadow-black shadow-md transition-all duration-300 ease-in-out origin-[100%_10%] hover:rotate-[3deg] ${hiddenCard() === "web" ? 'animate-just' : 'visible duration-300'}`} onClick={()=>{openCard("web")}}>
             <p className="font-mono text-gray-800 mb-2 text-sm">Web Technologies</p>
             <div>
                 <div className="absolute w-10 h-10 rounded-full left-[0] z-50 border-1 p-[3px] border-white bg-white">
@@ -251,7 +265,7 @@ function App() {
 
           </div>
           <div
-              className="absolute top-[27%] left-[238%] bg-white w-full h-[120px] p-4 -rotate-[5deg] shadow-black shadow-md transition-all duration-300 ease-in-out origin-[10%_3%] hover:rotate-[0deg]"
+              className={`absolute top-[27%] left-[238%] bg-white w-full h-[120px] p-4 -rotate-[5deg] shadow-black shadow-md transition-all duration-300 ease-in-out origin-[10%_3%] hover:rotate-[0deg] ${hiddenCard() === "lib" ? 'animate-just' : 'visible duration-300'}`}
               onClick={() => { openCard("lib"); }}
           >
                   <p className="font-mono text-sm text-gray-900 ml-[15%]">Frameworks</p>
@@ -277,7 +291,7 @@ function App() {
 
 
 
-          <div className="absolute top-[135%] left-[110%] bg-white w-full h-[120px] p-4 rotate-12 shadow-black shadow-md transition-all duration-300 ease-in-out origin-top hover:rotate-0 " onClick={()=>{openCard("db")}}>
+          <div className={`absolute top-[135%] left-[110%] bg-white w-full h-[120px] p-4 rotate-12 shadow-black shadow-md transition-all duration-300 ease-in-out origin-top visible hover:rotate-0 ${hiddenCard() === "db" ? 'animate-just' : 'visible duration-300'} `} onClick={(e)=>{openCard("db");}}>
             <p className="font-mono text-gray-900 text-sm">DataBases and other tools</p>
             <div>
             <div className="absolute top-[47%] left-[5%] w-10 h-10 rounded-full z-50 border-[2px] border-white p-[3px] border-white bg-white">
@@ -301,6 +315,9 @@ function App() {
 
         </section>
 
+
+
+
         {/* Projects Section */}
         <section id="projects" class="absolute bottom-[5%] right-[5%] transform rotate-6 z-0">
           <div class="relative w-[170px] h-[120px]">
@@ -315,6 +332,38 @@ function App() {
             {/* <div class="absolute top-[0%] left-[30%]  w-8 h-8 bg-red-500 rounded-full border-2 border-red-700"></div> */}
 
           </div>
+
+          {/* children of the projects start here */}
+          {/* Student Synergy */}
+
+          <div className={`group absolute -top-[150%] -left-[170%] bg-white w-[200px] p-2 -rotate-[20deg] 
+                 shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out origin-[50%_10%] 
+                 hover:rotate-0  border border-gray-100 cursor-pointer ${hiddenCard() === "ssynergy" ? 'animate-just' : 'visible duration-300'}`}
+                onclick={()=>openCard("ssynergy")}
+              >
+                {/* Title Section */}
+                <br />
+                <h3 className="font-mono text-xl font-bold text-gray-800 mb-4">
+                  Student Synergy
+                </h3>
+                
+                {/* Tech Stack Section */}
+                <div className="mb-4">
+                  <p className="font-mono text-gray-600 text-sm mb-2">
+                    <strong>Tech Stack:</strong>
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                      <span 
+                        className="inline-block bg-gray-100 rounded-full px-3 py-1 
+                                text-xs font-mono text-gray-700"
+                      >
+                        Django, Python, HTML, CSS, JS, MySQL
+                      </span>
+                  
+                  </div>
+                </div>
+          </div>
+
         </section>
 
         {/* Strengths Section */}
@@ -324,7 +373,7 @@ function App() {
             <div class="absolute -top-1 -left-1 w-full h-full bg-yellow-100 border-2 border-orange-900 shadow-black shadow-lg rotate-1"></div>
             <div class="relative w-full h-full bg-yellow-200 border-2 border-orange-900 shadow-black shadow-md">
               <div class="w-full h-full flex items-center justify-center">
-                <p class="font-mono text-gray-800">KEY FINDINGS</p>
+                <p class="font-mono text-gray-800">AGENT TRAITS</p>
               </div>
               <div class="absolute -top-3 -right-2 w-6 h-6 bg-yellow-300 rotate-45"></div>
             </div>
@@ -348,7 +397,7 @@ function App() {
 
         {/* Decorative Elements */}
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
-          <div class="absolute top-4 left-4 w-8 h-8 border-2 border-orange-900 rounded-full"></div>
+          <div class="absolute top-4 left-4 w-8 h-8 border-2 border-orange-900 rounded-full " ></div>
           <div class="absolute bottom-4 right-4 w-8 h-8 border-2 border-orange-900 rounded-full"></div>
           <div class="absolute top-8 right-8 w-4 h-4 bg-red-600 rounded-full shadow-black shadow-md"></div>
           <div class="absolute bottom-8 left-8 w-4 h-4 bg-red-600 rounded-full shadow-black shadow-md"></div>
@@ -389,7 +438,8 @@ function App() {
         {/* databases */}
         <div class="absolute top-[29%] left-[25%] z-20 shadow-lg shadow-black  w-4 h-4 bg-red-500 rounded-full border-2 border-red-700"></div>
 
-
+        {/* student synergy pin */}
+        <div class="absolute top-[43%] left-[69.8%] z-20 shadow-lg shadow-black  w-4 h-4 bg-red-500 rounded-full border-2 border-red-700"></div>
 
         {/* lines or red strings */}
         <div class="absolute inset-0 pointer-events-none">
@@ -424,12 +474,18 @@ function App() {
 
               {/* case files */}
               <line x1="87.5%" y1="77.5%" x2="56.5%" y2="57%" stroke="#EF4444" stroke-width="2"/>
+
+
+              {/* student synergy string */}
+              <line x1="87.5%" y1="77.5%" x2="70%" y2="44%" stroke="#EF4444" stroke-width="1"/>
+
+
             </g>
           </svg>
         </div>
 
 
-        <Section data={modalData()} title={modalTitle()} isProfile={isProfile()}  isOpen={isModalOpen()} onClose={() => {setIsModalOpen(false); setIsProfile(false)}} />
+        <Section data={modalData()} title={modalTitle()} isProfile={isProfile()} isProject={isProject()}  isOpen={isModalOpen()} onClose={() => {setIsModalOpen(false); setIsProfile(false); setIsproject(false); setHiddenCard(null)}} />
 
       </main>
     </div>

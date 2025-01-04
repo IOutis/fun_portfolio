@@ -10,7 +10,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* pointer-events: none;  */
+  pointer-events: none; 
   /* Ensure it doesn't interfere */
   background: repeating-linear-gradient(
     to bottom,
@@ -18,4 +18,37 @@
     #cccccc00 1px,
     transparent 20px
   ); /* Horizontal notebook-like lines */
+}
+
+@keyframes clickAnimation {
+  0% {
+    transform: scale(1) rotateY(0deg);
+  }
+  50% {
+    transform: scale(2) rotateY(0deg);
+  }
+  100% {
+    transform: scale(2) rotateY(180deg);
+  }
+}
+
+.animate-click {
+  animation: clickAnimation 1s forwards;
+}
+
+
+@keyframes just {
+  0% {
+    transform: scale(1) rotateY(0deg);
+  }
+  50% {
+    transform: scale(2) rotateY(0deg);
+  }
+  100% {
+    transform: scale(2) rotateY(180deg);
+  }
+}
+
+.animate-just {
+  animation: just 1s forwards;
 }

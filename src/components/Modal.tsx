@@ -52,7 +52,7 @@ const Modal: Component<ModalProps> = (props) => {
   return (
     <Show when={isVisible()}>
       <div 
-        class={` fixed inset-0 z-50 flex items-center justify-center transition-all duration-30000 ease-in-out animate-modal`}
+        class={`backdrop-blur-lg fixed inset-0 z-50 flex items-center justify-center transition-all duration-30000 ease-in-out animate-modal`}
       >
         {/* Backdrop */}
         <div 

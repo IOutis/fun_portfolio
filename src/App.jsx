@@ -199,8 +199,9 @@ function App() {
           {/* children of the skills start here */}
           
           
-          <div className={` group absolute top-[129%] -left-[21%] bg-white w-full h-[120px] p-4 rotate-12 shadow-black shadow-md transition-all duration-300 ease-in-out origin-top hover:rotate-0 ${hiddenCard() === "lang" ? 'animate-just' : 'visible duration-300'}`}  onClick={()=>{openCard("lang")}}>            
-            <p class="font-mono text-gray-800 text-md">Languages</p>
+          <div className={` group absolute top-[129%] -left-[21%] bg-white w-full h-[120px] p-4 rotate-12 shadow-black shadow-md transition-all duration-300 ease-in-out origin-top hover:rotate-0 ${hiddenCard() === "lang" ? 'backface-visibility animate-langAnimate' : 'visible duration-300'}`}  onClick={()=>{openCard("lang")}}>      
+   
+              <p class="font-mono text-gray-800 text-md">Languages</p>
             
                   <div>
                     <div className="absolute top-[42%] w-10 h-10 rounded-full  border-2 border-white bg-white z-40">
@@ -224,6 +225,8 @@ function App() {
                   {/* <div className="absolute z-100 -bottom-6 left-[24%] opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 hover:block bg-black text-white text-md rounded-md px-2 py-1">
                       Click to view intel
                   </div> */}
+
+              
             </div>
 
           
@@ -232,7 +235,7 @@ function App() {
 
 
           {/* web technologies */}
-          <div className={`absolute top-[24%] left-[150%] bg-white w-full h-[120px] p-4 origin-[90%_3%] rotate-[12deg] shadow-black shadow-md transition-all duration-300 ease-in-out origin-[100%_10%] hover:rotate-[3deg] ${hiddenCard() === "web" ? 'animate-just' : 'visible duration-300'}`} onClick={()=>{openCard("web")}}>
+          <div className={`absolute top-[29%] left-[150%] bg-white w-full h-[120px] p-4 origin-[90%_3%] rotate-[12deg] shadow-black shadow-md transition-all duration-300 ease-in-out origin-[100%_3%] hover:rotate-[3deg] ${hiddenCard() === "web" ? 'animate-webAnimate' : 'visible duration-300'}`} onClick={()=>{openCard("web")}}>
             <p className="font-mono text-gray-800 mb-2 text-sm">Web Technologies</p>
             <div>
                 <div className="absolute w-10 h-10 rounded-full left-[0] z-50 border-1 p-[3px] border-white bg-white">
@@ -265,7 +268,7 @@ function App() {
 
           </div>
           <div
-              className={`absolute top-[27%] left-[238%] bg-white w-full h-[120px] p-4 -rotate-[5deg] shadow-black shadow-md transition-all duration-300 ease-in-out origin-[10%_3%] hover:rotate-[0deg] ${hiddenCard() === "lib" ? 'animate-just' : 'visible duration-300'}`}
+              className={`absolute top-[32%] left-[238%] bg-white w-full h-[120px] p-4 -rotate-[5deg] shadow-black shadow-md transition-all duration-300 ease-in-out origin-[10%_3%] hover:rotate-[0deg] ${hiddenCard() === "lib" ? 'animate-frameAnimate' : 'visible duration-300'}`}
               onClick={() => { openCard("lib"); }}
           >
                   <p className="font-mono text-sm text-gray-900 ml-[15%]">Frameworks</p>
@@ -291,7 +294,7 @@ function App() {
 
 
 
-          <div className={`absolute top-[135%] left-[110%] bg-white w-full h-[120px] p-4 rotate-12 shadow-black shadow-md transition-all duration-300 ease-in-out origin-top visible hover:rotate-0 ${hiddenCard() === "db" ? 'animate-just' : 'visible duration-300'} `} onClick={(e)=>{openCard("db");}}>
+          <div className={`absolute top-[135%] left-[110%] bg-white w-full h-[120px] p-4 rotate-12 shadow-black shadow-md transition-all duration-300 ease-in-out origin-top visible hover:rotate-0 ${hiddenCard() === "db" ? 'animate-dbAnimate' : 'visible duration-300'} `} onClick={(e)=>{openCard("db");}}>
             <p className="font-mono text-gray-900 text-sm">DataBases and other tools</p>
             <div>
             <div className="absolute top-[47%] left-[5%] w-10 h-10 rounded-full z-50 border-[2px] border-white p-[3px] border-white bg-white">
@@ -336,7 +339,7 @@ function App() {
           {/* children of the projects start here */}
           {/* Student Synergy */}
 
-          <div className={`group absolute -top-[150%] -left-[170%] bg-white w-[200px] p-2 -rotate-[20deg] 
+          <div className={`z-[0] group absolute -top-[150%] -left-[170%] bg-white w-[200px] p-2 -rotate-[20deg] 
                  shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out origin-[50%_10%] 
                  hover:rotate-0  border border-gray-100 cursor-pointer ${hiddenCard() === "ssynergy" ? 'animate-just' : 'visible duration-300'}`}
                 onclick={()=>openCard("ssynergy")}
@@ -433,7 +436,7 @@ function App() {
 
         {/* webtechnologies and frameworks */}
         {/* common pin */}
-        <div class="absolute top-[5.5%] left-[35%] z-20 shadow-lg shadow-black  w-4 h-4 bg-red-500 rounded-full border-2 border-red-700"></div>
+        <div class="absolute top-[7.5%] left-[34.8%] z-20 shadow-lg shadow-black  w-4 h-4 bg-red-500 rounded-full border-2 border-red-700"></div>
         
         {/* databases */}
         <div class="absolute top-[29%] left-[25%] z-20 shadow-lg shadow-black  w-4 h-4 bg-red-500 rounded-full border-2 border-red-700"></div>
@@ -460,7 +463,7 @@ function App() {
               {/* Evidence list - programming languages */}
               <line x1="10.8%" y1="21.5%" x2="9.5%" y2="33%" stroke="#EF4444" stroke-width="1"/>
               {/* Evidence list - web technologies + framework */}
-              <line x1="10.8%" y1="21.5%" x2="35.5%" y2="7%" stroke="#EF4444" stroke-width="1"/>
+              <line x1="10.8%" y1="21.5%" x2="35.5%" y2="9%" stroke="#EF4444" stroke-width="1"/>
               {/* Evidence list- databases */}
               <line x1="10.8%" y1="21.5%" x2="25.5%" y2="30.5%" stroke="#EF4444" stroke-width="1"/>
 

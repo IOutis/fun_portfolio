@@ -52,7 +52,7 @@ const Modal: Component<ModalProps> = (props) => {
   return (
     <Show when={isVisible()}>
       <div 
-        class={`backdrop-blur-lg fixed inset-0 z-50 flex items-center justify-center transition-all duration-30000 ease-in-out animate-modal`}
+        class={` fixed inset-0 z-50 flex items-center justify-center transition-all duration-3000 ease-in-out animate-modalMain backdrop-blur-md `}
       >
         {/* Backdrop */}
         <div 
@@ -65,7 +65,7 @@ const Modal: Component<ModalProps> = (props) => {
         
         {/* Modal panel */}
         <div 
-          class={`relative bg-white rounded-lg w-full max-w-3xl m-4 transform transition-all duration-200 ease-in-out
+          class={`relative bg-white rounded-lg animate-modal w-full max-w-3xl m-4 transform transition-all duration-200 ease-in-out
             shadow-lg max-h-full flex flex-col
             ${isAnimating() 
               ? 'opacity-100 translate-y-0 scale-100' 

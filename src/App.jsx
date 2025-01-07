@@ -341,7 +341,7 @@ function App() {
 
           <div className={`z-[0] group absolute -top-[150%] -left-[170%] bg-white w-[200px] p-2 -rotate-[20deg] 
                  shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out origin-[50%_10%] 
-                 hover:rotate-0  border border-gray-100 cursor-pointer ${hiddenCard() === "ssynergy" ? 'animate-just' : 'visible duration-300'}`}
+                 hover:rotate-0  border border-gray-100 cursor-pointer ${hiddenCard() === "ssynergy" ? 'animate-ssynergyAnimate' : 'visible duration-300'}`}
                 onclick={()=>openCard("ssynergy")}
               >
                 {/* Title Section */}

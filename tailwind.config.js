@@ -7,14 +7,21 @@ module.exports = {
     extend: {
       animation: {
         'modal': 'modal 1s ease-out',
+        'modalMain': 'modalMain 1s ease-out',
         'just': 'just 1s forwards',
-        'profileAnimate':'profileAnimate 1s forwards',
+        'ssynergyAnimate': 'ssynergyAnimate 1s forwards',
+        'profileAnimate':'profileAnimate 0.8s forwards',
         'langAnimate': 'langAnimate 1s forwards',
         'webAnimate': 'webAnimate 1s forwards',
         'frameAnimate': 'frameAnimate 1s forwards',
         'dbAnimate': 'dbAnimate 1s forwards',
       },
       keyframes: {
+        modalMain: {
+          '0%': { opacity: '0', backdropFilter: "blur(0px)" },
+          '50%': { opacity: '0.5', backdropFilter: "blur(6px)" },
+          '100%': { opacity: '1', backdropFilter: "blur(12px)" }
+        },
         modal: {
           '0%': { 
             opacity: '0', 
@@ -50,20 +57,19 @@ module.exports = {
         },
         profileAnimate:{
           '0%': {
-            transform: 'scale(1) rotateY(0deg) ',
+            transform: 'scale(1) rotateY(0deg) translate(-50%,-30%)',
           },
-          '50%': {
-            transform: 'scale(2)  rotateY(30deg) ',
+          '40%': {
+            transform: 'scale(2)  rotateY(60deg) translate(-50%,-30%)',
             opacity:'0.6'
           },
-          '75%': {
-            transform: 'scale(2) rotateY(60deg) ',
+          '60%': {
+            transform: 'scale(2) rotateY(90deg) translate(-50%,-30%)',
             opacity:'0.3'
           },
 
           '100%': {
-            zIndex: '200',
-            transform: 'scale(4) rotateY(90deg) ',
+            transform: 'scale(4) rotateY(90deg) translate(-50%,-30%)',
             opacity:'0'
           },
         },
@@ -165,6 +171,25 @@ module.exports = {
             zIndex:'400',
           }
         },
+        ssynergyAnimate:{
+          
+              '0%': {
+            transform: 'scale(1) translateX(0%) translateY(0%)',
+          },
+          '40%': {
+            transform: 'scale(2) translateX(-60%) translateY(-20%)',
+            opacity:'1'
+          },
+          '60%': {
+            transform: 'scale(2) rotateY(95deg)  translateX(650%) translateY(-20%)',
+            opacity:'1'
+          },
+
+          '100%': {
+            transform: 'scale(2) rotateY(95deg)  translateX(650%) translateY(-20%)',
+            opacity:'1'
+          },
+        }
       },
 
     },
@@ -181,4 +206,4 @@ module.exports = {
       })
     }
   ],
-};
+}

@@ -10,6 +10,7 @@ module.exports = {
         'modalMain': 'modalMain 1s ease-out',
         'just': 'just 1s forwards',
         'ssynergyAnimate': 'ssynergyAnimate 1s forwards',
+        'nsynergyAnimate': 'nsynergyAnimate 1s forwards',
         'profileAnimate':'profileAnimate 0.8s forwards',
         'langAnimate': 'langAnimate 1s forwards',
         'webAnimate': 'webAnimate 1s forwards',
@@ -181,13 +182,33 @@ module.exports = {
             opacity:'1'
           },
           '60%': {
-            transform: 'scale(2) rotateY(95deg)  translateX(650%) translateY(-20%)',
+            transform: 'scale(2) rotateY(93deg)  translateX(650%) translateY(-20%)',
             opacity:'1'
           },
 
           '100%': {
-            transform: 'scale(2) rotateY(95deg)  translateX(650%) translateY(-20%)',
+            transform: 'scale(2) rotateY(93deg)  translateX(650%) translateY(-20%)',
+            opacity:'0'
+          },
+        }
+        ,
+        nsynergyAnimate:{
+          
+              '0%': {
+            transform: 'scale(1) translateX(0%) translateY(0%)',
+          },
+          '40%': {
+            transform: 'scale(2) translateX(-150%) translateY(-20%)',
             opacity:'1'
+          },
+          '60%': {
+            transform: 'scale(2) rotateY(93deg)  translateX(3000%) translateY(-20%)',
+            opacity:'1'
+          },
+
+          '100%': {
+            transform: 'scale(2) rotateY(93deg)  translateX(3000%) translateY(-20%)',
+            opacity:'0'
           },
         }
       },

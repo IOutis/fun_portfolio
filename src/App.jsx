@@ -90,13 +90,35 @@ function App() {
 
     const ssynergy = [
       {
-        name: "Student Synergy",
+        name: "Student Synergy (Django Version)",
         description: "• Created a user-friendly website to help students manage their schedules effectively.• Introduced features such as a Pomodoro timer, gamified task progress tracking, user authentication, dashboard, and digital notes, which aims to increase the users productivity by a 35-40%.",
         techStack: ["Django", "Python", "MySQL", "Bootstap","HTML CSS & JS"],
         features: ["Rich Text Editor for note-taking", "Tasks Scheduler", "Pomodoro Timer", "Chatbot"],
         duration: "3 months",
         githubLink: "https://github.com/IOutis/Learners-Edge",
       }
+    ]
+    
+    const nsynergy = [
+      
+        {
+          name: "Student Synergy (Next.js Version)",
+          description: "• Developed an all-in-one productivity platform for students, combining tools for time management, collaborative learning, and gamification. • Features include gamified task scheduling, digital notes with CKEditor, community modules, and plans for AI-assisted learning tools and wellness resources. • Anticipates a 30-40% productivity boost by consolidating essential tools into a single platform.",
+          techStack: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "MongoDB"],
+          features: [
+            "Gamified Task Manager",
+            "Rich Text Editor (CKEditor) for Notes",
+            "Customizable Communities with Approval Types and Sections",
+            "Quizzes with Timers and Admin Controls",
+            "Assignments with File Upload Support",
+            "AI Chatbot Integration (Gemini API)",
+            "Future Features: Meditation Resources, Exercise Planner, AI-Driven Learning Tools",
+            "Google Auth"
+          ],
+          duration: "Ongoing (Jan. 2024 – Present)",
+          githubLink: "https://github.com/IOutis/Student-Synergy", 
+        },
+        
     ]
 
     if(str==="lang"){
@@ -122,7 +144,13 @@ function App() {
     else if(str==="ssynergy"){
           setModalData(ssynergy);
           setIsModalOpen(true);
-          setModalTitle("Student Synergy")
+          setModalTitle("Student Synergy (Django version)")
+          setIsproject(true)
+    }
+    else if(str==="synergy"){
+          setModalData(nsynergy);
+          setIsModalOpen(true);
+          setModalTitle("Student Synergy (Next JS version)")
           setIsproject(true)
     }
     else if(str==="profile"){
@@ -339,7 +367,7 @@ function App() {
           {/* children of the projects start here */}
           {/* Student Synergy */}
 
-          <div className={`z-[0] group absolute -top-[150%] -left-[170%] bg-white w-[200px] p-2 -rotate-[20deg] 
+          <div className={`z-[0] group absolute -top-[180%] -left-[170%] bg-white w-[200px] p-2 -rotate-[20deg] 
                  shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out origin-[50%_10%] 
                  hover:rotate-0  border border-gray-100 cursor-pointer ${hiddenCard() === "ssynergy" ? 'animate-ssynergyAnimate' : 'visible duration-300'}`}
                 onclick={()=>openCard("ssynergy")}
@@ -364,6 +392,38 @@ function App() {
                       </span>
                   
                   </div>
+                 <p className="font-mono text-gray-800 text-xs absolute bottom-[5%] left-[25%]">View Intel</p>
+                </div>
+          </div>
+
+
+          {/* Student synergy NextJS */}
+          <div className={`z-[0] group absolute -top-[190%] -left-[0%] bg-white w-[200px] p-2 rotate-[15deg] 
+                 shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out origin-[50%_10%] 
+                 hover:rotate-0  border border-gray-100 cursor-pointer ${hiddenCard() === "synergy" ? 'animate-nsynergyAnimate' : 'visible duration-300'}`}
+                onclick={()=>openCard("synergy")}
+              >
+                {/* Title Section */}
+                <br />
+                <h3 className="font-mono text-xl font-bold text-gray-800 mb-4">
+                  Student Synergy
+                </h3>
+                
+                {/* Tech Stack Section */}
+                <div className="mb-4">
+                  <p className="font-mono text-gray-600 text-sm mb-2">
+                    <strong>Tech Stack:</strong>
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                      <span 
+                        className="inline-block bg-gray-100 rounded-full px-3 py-1 
+                        text-xs font-mono text-gray-700"
+                      >
+                        NextJS, Tailwind CSS, MongoDB, React JS
+                      </span>
+                  
+                  </div>
+                        <p className="font-mono text-gray-800 text-xs absolute bottom-[5%] left-[25%]">View Intel</p>
                 </div>
           </div>
 
@@ -442,7 +502,9 @@ function App() {
         <div class="absolute top-[29%] left-[25%] z-20 shadow-lg shadow-black  w-4 h-4 bg-red-500 rounded-full border-2 border-red-700"></div>
 
         {/* student synergy pin */}
-        <div class="absolute top-[43%] left-[69.8%] z-20 shadow-lg shadow-black  w-4 h-4 bg-red-500 rounded-full border-2 border-red-700"></div>
+        <div class="absolute top-[37.5%] left-[70%] z-20 shadow-lg shadow-black  w-4 h-4 bg-red-500 rounded-full border-2 border-red-700"></div>
+        {/* synergy -next js */}
+        <div class="absolute top-[40%] left-[91%] z-20 shadow-lg shadow-black  w-4 h-4 bg-red-500 rounded-full border-2 border-red-700"></div>
 
         {/* lines or red strings */}
         <div class="absolute inset-0 pointer-events-none">
@@ -480,7 +542,10 @@ function App() {
 
 
               {/* student synergy string */}
-              <line x1="87.5%" y1="77.5%" x2="70%" y2="44%" stroke="#EF4444" stroke-width="1"/>
+              <line x1="87.5%" y1="77.5%" x2="70.5%" y2="39%" stroke="#EF4444" stroke-width="1"/>
+
+              {/* student synergy-next js string */}
+              <line x1="88%" y1="77.5%" x2="91.7%" y2="40%" stroke="#EF4444" stroke-width="1"/>
 
 
             </g>
